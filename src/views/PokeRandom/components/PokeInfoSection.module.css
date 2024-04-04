@@ -1,0 +1,15 @@
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--titleColor);
+}
+
+
+.containerItems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 16px;
+}
