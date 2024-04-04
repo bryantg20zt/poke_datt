@@ -7,6 +7,7 @@ import { FaWeightHanging } from 'react-icons/fa'
 import { MdWaterDrop } from 'react-icons/md'
 import { GiTurtleShell, GiPunch } from 'react-icons/gi'
 import Styles from './Login.module.css'
+import { Link } from 'react-router-dom'
 
 export function Login () {
   return (
@@ -37,7 +38,9 @@ export function Login () {
         <footer className={Styles.bottomRegister}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h4 className={Styles.titleRegister}>Registrate</h4>
-            <IoArrowForwardOutline style={{ cursor: 'pointer' }} />
+            <Link to='/register'>
+              <IoArrowForwardOutline style={{ cursor: 'pointer' }} />
+            </Link>
           </div>
           <p className={Styles.subtitleRegister}>Encuentra tu Pokemon favorito!</p>
         </footer>

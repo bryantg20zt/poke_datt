@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  background-color: var(--backgroundPrimary);
+}
+
+.landingSide {
+  width: 60%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.formSide {
+  width: 40%;
+  height: 100dvh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-left: 1px solid var(--uiBorder);
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--textColor);
+}

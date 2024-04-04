@@ -1,18 +1,20 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { LayoutApp } from '@layout/AppLayout.jsx'
+import { Login } from '@views/Login/Login.jsx'
+import { Register } from '@views/Register/Register.jsx'
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <p>Hola</p>
+    element: <Navigate to='/auth' />
   },
   {
     path: '/auth',
-    element: <p>Auth</p>
+    element: <Login />
   },
   {
     path: '/register',
-    element: <p>Register</p>
+    element: <Register />
   },
   {
     path: '/app',
