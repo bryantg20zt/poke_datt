@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { LayoutApp } from '@layout/AppLayout.jsx'
 import { Login } from '@views/Login/Login.jsx'
 import { Register } from '@views/Register/Register.jsx'
+import { PokeRandom } from '@views/PokeRandom/PokeRandom.jsx'
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'home',
-        element: <p>Random Pokemon</p>
+        element: <PokeRandom />
       },
       {
         path: 'pokedex',
