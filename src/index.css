@@ -1,0 +1,22 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --placeholderColor: #D6D6D6;
+  --textColor: #B7B7B7;
+  --primaryColor: #006FEE;
+  --uiBorder: #E4E4E7;
+  --backgroundPrimary: #F6F7F9;
+  --titleColor: rgb(23, 23, 23);
+}
+
+html {
+  background-color: #F6F7F9;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(23, 23, 23);
+}
