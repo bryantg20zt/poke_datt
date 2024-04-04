@@ -1,9 +1,10 @@
+import { Sidebar } from '@components/sidebar/SidebarNavigation.jsx'
 import { Outlet } from 'react-router-dom'
 
 export function LayoutApp ({ children }) {
   return (
     <div style={{ display: 'flex' }}>
-      <p>Sidebar</p>
+      <Sidebar />
       <Outlet />
       {children}
     </div>
