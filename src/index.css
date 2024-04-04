@@ -11,6 +11,11 @@
   --titleColor: rgb(23, 23, 23);
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+}
+
 html {
   background-color: #F6F7F9;
 }
