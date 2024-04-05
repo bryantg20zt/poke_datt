@@ -15,7 +15,7 @@ export function FormToFill ({ type }) {
   const registerNow = '¿No tienes cuenta?'
   const loginNow = '¿Ya tienes una cuenta?'
 
-  const navigateToApp = () => navigate('/app/home')
+  const navigateToApp = () => navigate('/poke_datt/app/home')
   return (
     <form className={Styles.container}>
       <Input key='email' type='email' label='Email' labelPlacement='outside' placeholder='pikachu@pokeapi.com' startContent={<MdEmail style={{ color: 'var(--placeholderColor)' }} />} variant='bordered' />
@@ -42,7 +42,7 @@ export function FormToFill ({ type }) {
         <Button variant='ghost' style={{ width: '30%' }}><FcGoogle />Google</Button>
         <Button variant='ghost' style={{ width: '30%' }}><FaFacebook style={{ color: 'var(--primaryColor)' }} />Facebook</Button>
       </section>
-      <Link className={Styles.questionToRedirect} to={type === 'login' ? '/register' : '/auth'}>
+      <Link className={Styles.questionToRedirect} to={type === 'login' ? '/poke_datt/register' : '/poke_datt/auth'}>
         {type === 'login' ? registerNow : loginNow} <span className={Styles.linkToGo}>{type === 'login' ? 'Registrate' : 'Iniciar sesion'}</span>
       </Link>
     </form>
