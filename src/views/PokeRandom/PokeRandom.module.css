@@ -15,3 +15,10 @@
   position: relative;
   top: 15%;
 }
+
+
+@media (width <= 1440px) {
+  .sectionInformation {
+    width: 90%;
+  }
+}

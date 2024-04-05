@@ -20,7 +20,6 @@ export function Pokedex () {
   }
 
   function handleFilterTypes (active, name) {
-    // console.log(currentTypesSelected)
     if (currentTypesSelected.length > 0) {
       currentTypesSelected.some((type) => type === name) && active
         ? setCurrentTypesSelected(currentTypesSelected.filter((type) => type !== name))

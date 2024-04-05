@@ -9,3 +9,9 @@
   border-radius: 3rem;
   padding: 0 1rem;
 }
+
+@media (width <= 1440px) {
+  .container {
+    width: 90%;
+  }
+}

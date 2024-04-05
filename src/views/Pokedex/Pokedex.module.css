@@ -50,7 +50,7 @@
   overflow-x: hidden;
 }
 
-@media (width < 19020px) {
+@media (width < 1920px) {
   .containerListPokemons {
     grid-template-columns: repeat(6, 1fr);
     grid-row-gap: 2rem;
