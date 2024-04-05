@@ -24,7 +24,7 @@
   flex-wrap: nowrap;
   white-space: nowrap;
   color: var(--textColor);
-  font-weight: 300;
+  font-weight: 400;
   padding-top: 1.5rem;
 }
 
@@ -40,7 +40,7 @@
   width: 100%;
   text-align: center;
   color: var(--textColor);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.75rem;
   padding: 1rem;
 }
@@ -51,7 +51,7 @@
 
 .linkToGo {
   color: var(--primaryColor);
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
 }
 

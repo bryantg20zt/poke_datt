@@ -28,7 +28,7 @@
 .bottomRegister {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
   padding: 1rem;
   background-color: white;
   border: 1px solid var(--iuBorder);
@@ -40,12 +40,13 @@
 
 .subtitleLogin {
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--textColor);
 }
 
 .titleRegister {
   font-size: 1rem;
+  font-weight: 400;
   color: var(--titleColor);
 }
 
