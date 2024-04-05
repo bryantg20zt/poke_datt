@@ -16,14 +16,13 @@ function handleGETStyles (item, styles) {
 }
 
 function PokemonSection ({ title, type, data, styles, color }) {
-  console.log(color)
   return (
     <section>
       <h2 className={Styles.title} style={{ color }}>{title}</h2>
       <div className={Styles.containerItems}>
         {
           data.types.map((type) => (
-            <PokeStat key={type.id} style={handleGETStyles(type.type.name, styles)}>
+            <PokeStat key={type.type.name} style={handleGETStyles(type.type.name, styles)}>
               {
                 handleGETIconType(type.type.name, styles)
               }
@@ -37,7 +36,6 @@ function PokemonSection ({ title, type, data, styles, color }) {
 }
 
 function Stats ({ title, stats, styles, color }) {
-  console.log(stats)
   return (
     <section>
       <h2 className={Styles.title} style={{ color }}>{title}</h2>
@@ -56,8 +54,6 @@ function Stats ({ title, stats, styles, color }) {
 }
 
 function Abilities ({ title, abilities, color }) {
-  console.log(abilities)
-
   return (
     <section>
       <h2 className={Styles.title} style={{ color }}>{title}</h2>
@@ -76,7 +72,6 @@ function Abilities ({ title, abilities, color }) {
 }
 
 function PokeFisio ({ title, fisio, color }) {
-  console.log(fisio)
   return (
     <section>
       <h2 className={Styles.title} style={{ color }}>{title}</h2>
@@ -108,8 +103,8 @@ export function PokeInfoSection ({ title, type, data, color }) {
     stylesStats.push(stylesStatsSingle)
   })
 
-  if (type === 'pokemon') return <PokemonSection title={title} data={data} styles={stylesTypes} color={color} />
-  if (type === 'stats') return <Stats title={title} stats={data.stats} styles={stylesStats} color={color} />
-  if (type === 'abilities') return <Abilities title={title} abilities={data.abilities} color={color} />
-  if (type === 'fisio') return <PokeFisio title={title} fisio={{ height: data.height, weight: data.weight }} color={color} />
+  if (type === 'pokemon') return <PokemonSection title={title} data={data} styles={stylesTypes} color={color} key={title} />
+  if (type === 'stats') return <Stats title={title} stats={data.stats} styles={stylesStats} color={color} key={title} />
+  if (type === 'abilities') return <Abilities title={title} abilities={data.abilities} color={color} key={title} />
+  if (type === 'fisio') return <PokeFisio title={title} fisio={{ height: data.height, weight: data.weight }} color={color} key={title} />
 }

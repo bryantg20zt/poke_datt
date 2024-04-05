@@ -22,16 +22,16 @@ export function PokeRandom () {
       <PokeHeader handleChange={handleGetRandomID} />
       <img src={pokemonFinded ? pokemonFinded[0].sprites.other.home.front_default : ''} alt='Pokemon' />
       <div className={Styles.sectionInformation}>
-        {pokemonFinded && pokemonFinded.length > 0
+        {pokemonFinded && pokemonFinded.length === 1
           ? (
             <>
               <section>
-                <PokeInfoSection title={pokemonFinded[0] ? pokemonFinded[0].name.toUpperCase() : ''} type='pokemon' data={pokemonFinded[0]} color={pokemonStyles.color} />
-                <PokeInfoSection title='Stats Base' type='stats' data={pokemonFinded[0]} color={pokemonStyles.color} />
+                <PokeInfoSection key={pokemonFinded[0].id + 'I'} title={pokemonFinded[0].name.toUpperCase()} type='pokemon' data={pokemonFinded[0]} color={pokemonStyles.color} />
+                <PokeInfoSection key={pokemonFinded[0].id + 'S'} title='Stats Base' type='stats' data={pokemonFinded[0]} color={pokemonStyles.color} />
               </section>
               <section>
-                <PokeInfoSection title='Habilidades' type='abilities' data={pokemonFinded[0]} color={pokemonStyles.color} />
-                <PokeInfoSection title='Fisionomia' type='fisio' data={pokemonFinded[0]} color={pokemonStyles.color} />
+                <PokeInfoSection key={pokemonFinded[0].id + 'A'} title='Habilidades' type='abilities' data={pokemonFinded[0]} color={pokemonStyles.color} />
+                <PokeInfoSection key={pokemonFinded[0].id + 'F'} title='Fisionomia' type='fisio' data={pokemonFinded[0]} color={pokemonStyles.color} />
               </section>
             </>
             )

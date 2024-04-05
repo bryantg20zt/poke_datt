@@ -21,7 +21,6 @@ export async function GET_POKEMONS_OF_TYPE (type) {
 export async function GET_POKEMON_BY_NAME (name) {
   const response = await fetch(`${API_URL}/pokemon/${name}`)
   const pokemon = await response.json()
-  console.log(pokemon)
   return pokemon
 }
 
