@@ -3,11 +3,23 @@
   height: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 4px;
   background-color: white;
+  padding-top: 1rem;
   border-radius: 0.5rem;
   color: var(--textColor);
   border: 1px solid var(--uiBorder);
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.nameType {
+  width: 100%;
+  padding: 4px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
 }
