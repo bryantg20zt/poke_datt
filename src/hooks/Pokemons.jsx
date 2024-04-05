@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GET_POKEMONS_PREVIEW, GET_POKEMON_DETAIL, GET_POKEMON_BY_NAME, GET_TYPES_POKEMONS } from '@services/fetchingPokemons.js'
+import { GET_POKEMONS_PREVIEW, GET_POKEMON_DETAIL, GET_POKEMON_BY_NAME, GET_TYPES_POKEMONS, GET_POKEMONS_OF_TYPE } from '@services/fetchingPokemons.js'
 import toast from 'react-hot-toast'
 
 export function useFetchPokemons () {
@@ -61,8 +61,10 @@ export function usePokemonSearched (pokemon) {
 }
 
 export function usePokemonTypes (typeSelected) {
+  const [beforeTypesOfPokemons, setBeforeTypesOfPokemons] = useState([])
   const [loadingTypes, setLoading] = useState()
   const [typesOfPokemons, setTypesOfPokemon] = useState()
+  const [pokemonsFiltered, setPokemonsFiltered] = useState([])
 
   useEffect(() => {
     async function fetchData () {
@@ -80,8 +82,51 @@ export function usePokemonTypes (typeSelected) {
   }, [])
 
   useEffect(() => {
+    console.log(typeSelected, beforeTypesOfPokemons)
+    async function fetchData () {
+      try {
+        if (pokemonsFiltered.length === 0 && typeSelected.length > 0) {
+          const pokemonsType = await GET_POKEMONS_OF_TYPE(typeSelected[0])
+          const promises = pokemonsType.pokemon.map(async item => {
+            const details = await GET_POKEMON_DETAIL(item.pokemon.url)
+            return { name: item.pokemon.name, details }
+          })
+          const data = await Promise.all(promises)
+          setPokemonsFiltered(data)
+          setBeforeTypesOfPokemons(typeSelected)
+        } else if (pokemonsFiltered.length > 0 && typeSelected > beforeTypesOfPokemons) {
+          const newTypeToAdd = typeSelected.filter(type => !beforeTypesOfPokemons.includes(type))
+          console.log(newTypeToAdd)
+          const pokemonsType = await GET_POKEMONS_OF_TYPE(newTypeToAdd[0])
+          const promises = pokemonsType.pokemon.map(async item => {
+            const details = await GET_POKEMON_DETAIL(item.pokemon.url)
+            return { name: item.pokemon.name, details }
+          })
+          const data = await Promise.all(promises)
+          const uniqueNewData = data.filter(newPokemon => {
+            return !pokemonsFiltered.some(existingPokemon => existingPokemon.details.id === newPokemon.details.id)
+          })
+          setPokemonsFiltered(beforeArray => [...beforeArray, ...uniqueNewData])
+          setBeforeTypesOfPokemons(typeSelected)
+        } else {
+          console.log(typeSelected)
+          const newPokemons = []
+          typeSelected.forEach(type => {
+            const listToAdd = pokemonsFiltered.filter((pokemon) => pokemon.details.types[0].type.name === type)
+            newPokemons.push(...listToAdd)
+          })
+          setPokemonsFiltered(newPokemons)
+          setBeforeTypesOfPokemons(typeSelected)
+        }
+      } catch (error) {
+        toast.error('Hubo un error en la obtencion de los Pokemon')
+      } finally {
+        setLoading(false)
+      }
+    }
 
+    fetchData()
   }, [typeSelected])
 
-  return { loadingTypes, typesOfPokemons }
+  return { loadingTypes, typesOfPokemons, pokemonsFiltered }
 }

@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react'
+import { Tooltip } from '@nextui-org/react'
 import { GET_STYLES_POKEMON } from '@services/colorPokemons'
 import Styles from './Types.module.css'
-import { useEffect, useState } from 'react'
 
-export function TypePokemon ({ name }) {
+export function TypePokemon ({ name, handleAddToFilter }) {
   const [currentStyles, setCurrentStyles] = useState()
   const [activeStyles, setActiveStyles] = useState({ background: 'white' })
   const [active, setActive] = useState(false)
@@ -15,12 +16,19 @@ export function TypePokemon ({ name }) {
   }, [name])
 
   function handleClick () {
-    setActive(!active)
+    if (active) {
+      setActive(!active)
+      handleAddToFilter(true, name)
+    } else {
+      setActive(!active)
+      handleAddToFilter(false, name)
+    }
   }
   return (
-    <div className={Styles.container} style={active && activeStyles ? activeStyles : {}} onClick={handleClick}>
-      {currentStyles && currentStyles.icon}
-      <p className={Styles.nameType}>{name}</p>
-    </div>
+    <Tooltip showArrow content={<p className={Styles.nameType}>{name}</p>}>
+      <div className={Styles.container} style={active && activeStyles ? activeStyles : {}} onClick={handleClick}>
+        {currentStyles && currentStyles.icon}
+      </div>
+    </Tooltip>
   )
 }
