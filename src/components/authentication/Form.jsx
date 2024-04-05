@@ -66,8 +66,8 @@ export function FormToFill ({ type }) {
         <Divider />
       </div>
       <section className={Styles.buttonsAlternativesSection}>
-        <Button variant='ghost' style={{ width: '30%' }}><FcGoogle />Google</Button>
-        <Button variant='ghost' style={{ width: '30%' }}><FaFacebook style={{ color: 'var(--primaryColor)' }} />Facebook</Button>
+        <Button variant='ghost' className={Styles.buttonsAlternatives}><FcGoogle />Google</Button>
+        <Button variant='ghost' className={Styles.buttonsAlternatives}><FaFacebook style={{ color: 'var(--primaryColor)' }} />Facebook</Button>
       </section>
       <Link className={Styles.questionToRedirect} to={type === 'login' ? '/poke_datt/register' : '/poke_datt/auth'}>
         {type === 'login' ? registerNow : loginNow} <span className={Styles.linkToGo}>{type === 'login' ? 'Registrate' : 'Iniciar sesion'}</span>
