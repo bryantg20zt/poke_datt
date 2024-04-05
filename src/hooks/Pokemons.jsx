@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { GET_POKEMONS_PREVIEW, GET_POKEMON_DETAIL, GET_POKEMON_BY_NAME, GET_TYPES_POKEMONS, GET_POKEMONS_OF_TYPE } from '@services/fetchingPokemons.js'
 import toast from 'react-hot-toast'
+import { GET_STYLES_POKEMON } from '../services/colorPokemons'
 
 export function useFetchPokemons () {
   const [loading, setLoading] = useState(false)
@@ -33,6 +34,7 @@ export function useFetchPokemons () {
 export function usePokemonSearched (pokemon) {
   const [pokemonFinded, setPokemonFinded] = useState()
   const [searchTimeout, setSearchTimeout] = useState(null)
+  const [pokemonStyles, setPokemonStyles] = useState('')
 
   useEffect(() => {
     if (searchTimeout) {
@@ -44,6 +46,8 @@ export function usePokemonSearched (pokemon) {
         if (pokemon) {
           const pokemonFindedAPI = await GET_POKEMON_BY_NAME(pokemon)
           setPokemonFinded([pokemonFindedAPI])
+          const stylesFromPokemon = GET_STYLES_POKEMON(pokemonFindedAPI.types[0].type.name)
+          setPokemonStyles(stylesFromPokemon)
         } else {
           setPokemonFinded(undefined)
         }
@@ -57,7 +61,7 @@ export function usePokemonSearched (pokemon) {
     return () => clearTimeout(timeout)
   }, [pokemon])
 
-  return { pokemonFinded }
+  return { pokemonFinded, pokemonStyles }
 }
 
 export function usePokemonTypes (typeSelected) {
