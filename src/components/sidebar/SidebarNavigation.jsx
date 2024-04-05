@@ -16,15 +16,15 @@ export function Sidebar () {
       <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem' }}>
         <BsNintendoSwitch style={{ fontSize: '1.5rem', color: 'red' }} />
         <ul className={Styles.navigationList}>
-          <li className={Styles.item} style={location.pathname === '/app/home' ? activeNavigation : inactiveNavigation}>
-            <Link to='/app/home'>
+          <li className={Styles.item} style={location.pathname === '/poke_datt/app/home' ? activeNavigation : inactiveNavigation}>
+            <Link to='/poke_datt/app/home'>
               <ItemNavigation>
                 <RiHome3Line style={{ fontSize: '1.5rem' }} />
               </ItemNavigation>
             </Link>
           </li>
-          <li className={Styles.item} style={location.pathname === '/app/pokedex' ? activeNavigation : inactiveNavigation}>
-            <Link to='/app/pokedex'>
+          <li className={Styles.item} style={location.pathname === '/poke_datt/app/pokedex' ? activeNavigation : inactiveNavigation}>
+            <Link to='/poke_datt/app/pokedex'>
               <ItemNavigation>
                 <IoSearch style={{ fontSize: '1.5rem' }} />
               </ItemNavigation>
