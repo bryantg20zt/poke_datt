@@ -32,7 +32,7 @@ export function Sidebar () {
           </li>
         </ul>
       </section>
-      <Link to='/auth'>
+      <Link to='/poke_datt/auth'>
         <LuLogOut style={{ color: 'red' }} />
       </Link>
     </div>
