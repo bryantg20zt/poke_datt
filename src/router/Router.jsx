@@ -7,19 +7,19 @@ import { Pokedex } from '@views/Pokedex/Pokedex.jsx'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/poke_datt',
     element: <Navigate to='/auth' />
   },
   {
-    path: '/auth',
+    path: '/poke_datt/auth',
     element: <Login />
   },
   {
-    path: '/register',
+    path: '/poke_datt/register',
     element: <Register />
   },
   {
-    path: '/app',
+    path: '/poke_datt/app',
     element: <LayoutApp />,
     children: [
       {
