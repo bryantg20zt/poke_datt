@@ -15,7 +15,8 @@ export default defineConfig({
       '@fonts': path.resolve(__dirname, './src/fonts'),
       '@router': path.resolve(__dirname, './src/router'),
       '@layout': path.resolve(__dirname, './src/layout'),
-      '@services': path.resolve(__dirname, './src/services')
+      '@services': path.resolve(__dirname, './src/services'),
+      '@hooks': path.resolve(__dirname, './src/hooks')
     }
   }
 })
