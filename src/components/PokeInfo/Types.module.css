@@ -1,0 +1,13 @@
+.container {
+  width: 75px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: var(--textColor);
+  border: 1px solid var(--uiBorder);
+}

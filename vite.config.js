@@ -14,7 +14,8 @@ export default defineConfig({
       '@misc': path.resolve(__dirname, './src/components/misc'),
       '@fonts': path.resolve(__dirname, './src/fonts'),
       '@router': path.resolve(__dirname, './src/router'),
-      '@layout': path.resolve(__dirname, './src/layout')
+      '@layout': path.resolve(__dirname, './src/layout'),
+      '@services': path.resolve(__dirname, './src/services')
     }
   }
 })

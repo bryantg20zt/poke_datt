@@ -3,6 +3,7 @@ import { LayoutApp } from '@layout/AppLayout.jsx'
 import { Login } from '@views/Login/Login.jsx'
 import { Register } from '@views/Register/Register.jsx'
 import { PokeRandom } from '@views/PokeRandom/PokeRandom.jsx'
+import { Pokedex } from '@views/Pokedex/Pokedex.jsx'
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'pokedex',
-        element: <p>Bienvenido a la pokedex</p>
+        element: <Pokedex />
       }
     ]
   }
