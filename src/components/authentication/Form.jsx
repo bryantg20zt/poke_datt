@@ -35,9 +35,13 @@ export function FormToFill ({ type }) {
         toast.error(response.message)
       }
     } else if (location.pathname === '/poke_datt/register') {
-      setAccounts([...accounts, { email, password }])
-      toast.success('Bievenido a la familia!')
-      navigate('/poke_datt/auth')
+      if (email && email.trim() !== '' && password && password.trim() !== '') {
+        setAccounts([...accounts, { email, password }])
+        toast.success('¡Bienvenido a la familia!')
+        navigate('/poke_datt/auth')
+      } else {
+        toast.error('Porfavor ingresa un email y una contraseña')
+      }
     }
   }
 
