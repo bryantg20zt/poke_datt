@@ -82,7 +82,6 @@ export function usePokemonTypes (typeSelected) {
   }, [])
 
   useEffect(() => {
-    console.log(typeSelected, beforeTypesOfPokemons)
     async function fetchData () {
       try {
         if (pokemonsFiltered.length === 0 && typeSelected.length > 0) {
@@ -94,9 +93,8 @@ export function usePokemonTypes (typeSelected) {
           const data = await Promise.all(promises)
           setPokemonsFiltered(data)
           setBeforeTypesOfPokemons(typeSelected)
-        } else if (pokemonsFiltered.length > 0 && typeSelected > beforeTypesOfPokemons) {
+        } else if (pokemonsFiltered.length > 0 && typeSelected.length > beforeTypesOfPokemons.length) {
           const newTypeToAdd = typeSelected.filter(type => !beforeTypesOfPokemons.includes(type))
-          console.log(newTypeToAdd)
           const pokemonsType = await GET_POKEMONS_OF_TYPE(newTypeToAdd[0])
           const promises = pokemonsType.pokemon.map(async item => {
             const details = await GET_POKEMON_DETAIL(item.pokemon.url)
@@ -109,7 +107,6 @@ export function usePokemonTypes (typeSelected) {
           setPokemonsFiltered(beforeArray => [...beforeArray, ...uniqueNewData])
           setBeforeTypesOfPokemons(typeSelected)
         } else {
-          console.log(typeSelected)
           const newPokemons = []
           typeSelected.forEach(type => {
             const listToAdd = pokemonsFiltered.filter((pokemon) => pokemon.details.types[0].type.name === type)
